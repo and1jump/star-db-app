@@ -24,32 +24,15 @@ export default class RandomPlanet extends Component {
   };
 
   updatePlanet() {
-    const id = Math.floor(Math.random() * 25) + 2;
+    const id = Math.floor(Math.random() * 17) + 2;
     this.swapiService.getPlanet(id).then(this.onPlanetLoaded);
   }
-
-  // updatePlanet() {
-  //   const id = Math.floor(Math.random() * 25) + 2;
-  //   this.swapiService.getPlanet(id).then(planet => {
-  //     this.setState({
-  //       id,
-  //       name: planet.name,
-  //       population: planet.population,
-  //       rotationPeriod: planet.rotation_period,
-  //       diameter: planet.diameter
-  //     });
-  //   });
-  // }
 
   render() {
     const { planet, loading } = this.state;
 
     const spinner = loading ? <Spinner /> : null;
     const content = !loading ? <PlanetView planet={planet} /> : null;
-
-    if (loading) {
-      return <Spinner />;
-    }
 
     return (
       <div className="random-planet jumbotron rounded">

@@ -10,7 +10,7 @@ import "./app.css";
 export default class App extends Component {
   render() {
     return (
-      <div className="stardb-app">
+      <div className="container stardb-app">
         <Header />
         <RandomPlanet />
 
