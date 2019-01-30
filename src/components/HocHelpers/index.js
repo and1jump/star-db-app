@@ -1,3 +1,3 @@
-import withData from "./withData";
+import withData from "./WithData";
 
-export default withData;
+export { withData };
