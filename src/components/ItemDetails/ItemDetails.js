@@ -15,7 +15,6 @@ const Record = ({ item, field, label }) => {
 export { Record };
 
 export default class ItemDetails extends Component {
-
   state = { item: null, image: null };
 
   componentDidMount() {
@@ -35,7 +34,10 @@ export default class ItemDetails extends Component {
     }
 
     getData(itemId).then(item => {
-      this.setState({ item, image: getImageUrl(item) });
+      this.setState({
+        item,
+        image: getImageUrl(item)
+      });
     });
   }
 
