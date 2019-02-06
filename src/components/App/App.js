@@ -28,13 +28,6 @@ export default class App extends Component {
   state = {};
 
   render() {
-    const {
-      getPerson,
-      getStarship,
-      getPersonImage,
-      getStarshipImage
-    } = this.swapiService;
-
     return (
       <ErrorBoundery>
         <SwapiServiceProvider value={this.swapiService}>
