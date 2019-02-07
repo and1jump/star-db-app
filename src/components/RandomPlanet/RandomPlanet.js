@@ -3,17 +3,38 @@ import React, { Component } from "react";
 import SwapiService from "../../services/swapi-service";
 import Spinner from "../Spinner";
 import ErrorIndicator from "../ErrorIndicator";
+import PropTypes from "prop-types";
 
 import "./random-planet.css";
 
 export default class RandomPlanet extends Component {
+  static defaultProps = {
+    updateInterval: 10000
+  };
+
+  static propType = {
+    //   updateInterval: (props, propName, componentName) => {
+    //     const value = props[propName];
+
+    //     if (typeof value === "number" && !isNaN(value)) {
+    //       return null;
+    //     } else {
+    //       return new TypeError(`${componentName}: ${propName} must be number`);
+    //     }
+    //   }
+
+    updateInterval: PropTypes.number.isRequired
+  };
+
   swapiService = new SwapiService();
 
   state = { planet: {}, loading: true };
 
   componentDidMount() {
+    const { updateInterval } = this.props;
+
     this.updatePlanet();
-    this.interval = setInterval(this.updatePlanet, 5000);
+    this.interval = setInterval(this.updatePlanet, updateInterval);
   }
 
   componentWillUnmount() {
